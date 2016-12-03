@@ -63,6 +63,8 @@ Cache-Control: no-cache
 {"id":[USERNAME],"TypeId":3,"Distance":0.000568182,"Date":"2016-12-02T10:00:00.000Z"}
 
 #Post Script
+## for the script below TypeID is the type of work out
+## 1 = Swim 2 = Bike 3 = Run 4 = Elliptical 5 = cross-country ski
 import requests
 
 session = requests.Session()
