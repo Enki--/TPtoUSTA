@@ -43,3 +43,33 @@ Date: Sat, 03 Dec 2016 04:15:02 GMT
 Connection: close
 
 {"access_token":"[TOKEN]","as:client_id":"NCCApp","userName":"USERNAME","userId":"USERNAME","roles":"CurrentMember",".issued":"Sat, 03 Dec 2016 04:15:01 GMT",".expires":"Sun, 04 Dec 2016 04:15:01 GMT"}
+
+#Post Workout
+POST /api/user/555378/log HTTP/1.1
+Host: nccapi.usatriathlon.org
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:32.0) Gecko/20100101 Firefox/32.0
+Accept: application/json, text/plain, */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/json;charset=utf-8
+Authorization: Bearer [TOKEN]
+Referer: http://ncc.usatriathlon.org/home/log
+Content-Length: 81
+Origin: http://ncc.usatriathlon.org
+Connection: close
+Pragma: no-cache
+Cache-Control: no-cache
+
+{"id":[USERNAME],"TypeId":3,"Distance":0.000568182,"Date":"2016-12-02T10:00:00.000Z"}
+
+#Post Script
+import requests
+
+session = requests.Session()
+
+rawBody = "{\"id\":[USERNAME],\"TypeId\":3,\"Distance\":0.000568182,\"Date\":\"2016-12-02T10:00:00.000Z\"}"
+headers = {"Origin":"http://ncc.usatriathlon.org","Authorization":"Bearer [TOKEN]","Accept":"application/json, text/plain, */*","Cache-Control":"no-cache","User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:32.0) Gecko/20100101 Firefox/32.0","Referer":"http://ncc.usatriathlon.org/home/log","Connection":"close","Accept-Encoding":"gzip, deflate","Pragma":"no-cache","Accept-Language":"en-US,en;q=0.5","Content-Type":"application/json;charset=utf-8"}
+response = session.post("https://nccapi.usatriathlon.org/api/user/555378/log", data=rawBody, headers=headers)
+
+print "Status code:", response.status_code
+print "Response body:", response.content
