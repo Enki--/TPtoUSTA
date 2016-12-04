@@ -1,5 +1,7 @@
 import requests
 import argparse
+import json
+import pprint
 
 parser = argparse.ArgumentParser(description='Pull TP data')
 parser.add_argument('-u', dest='user', type=str, required=True,
@@ -30,5 +32,4 @@ with requests.session() as session:
     headers = {"Origin":"https://app.trainingpeaks.com","Accept":"application/json, text/javascript, */*; q=0.01","User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:32.0) Gecko/20100101 Firefox/32.0","Referer":"https://app.trainingpeaks.com/","Connection":"close","Accept-Language":"en-US,en;q=0.5","Accept-Encoding":"gzip, deflate","Content-Type":"application/json"}
     response = session.get("https://tpapi.trainingpeaks.com/fitness/v1/athletes/301395/workouts/" + args.start + "/" + args.end + "/", headers=headers, proxies=proxies, verify=False)
 
-    print("Status code:", response.status_code)
-    print("Response body:", response.json())
+    pprint.pprint(response.json())
