@@ -1,0 +1,4 @@
+API url: https://tpapi.trainingpeaks.com
+https://tpapi.trainingpeaks.com/fitness/v1/athletes/301395/workouts/2016-08-22/2017-05-07
+Format to get workouts: https://tpapi.trainingpeaks.com/fitness/v1/athletes/[userIDNumber]/workouts/[startDate]/[enddate]
+returns cookie with JSON data for all workouts over the time period

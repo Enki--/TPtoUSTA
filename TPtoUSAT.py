@@ -18,4 +18,4 @@ response = session.post("http://usatauth.usatriathlon.org/token", data=paramsPos
 
 print("Status code:", response.status_code)
 print("Response body:", response.content)
-print("JSON:", response.json()['access_token'])
+print("Token:", response.json()['access_token'])
