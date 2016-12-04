@@ -19,3 +19,5 @@ response = session.post("http://usatauth.usatriathlon.org/token", data=paramsPos
 print("Status code:", response.status_code)
 print("Response body:", response.content)
 print("Token:", response.json()['access_token'])
+
+# the write after this is super easy, but need the website to work
